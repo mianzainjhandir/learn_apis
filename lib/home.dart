@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final response = await  http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
     if(response.statusCode == 200){
+      postList.clear();
       for (Map i in data) {
         postList.add(PostModel.fromJson(i as Map<String, dynamic>));
       }
@@ -49,7 +50,85 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ListView.builder(
                       itemCount: postList.length,
                       itemBuilder: (context, index){
-                        return Text(postList[index].title.toString());
+                        return Card(
+                          elevation: 6,
+                          shadowColor: Colors.black.withOpacity(0.2),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          margin: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.blue.shade50,
+                                  Colors.white,
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(15),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+
+                                  /// 🔹 Title Label
+                                  Text(
+                                    'Title',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blueGrey,
+                                    ),
+                                  ),
+
+                                  SizedBox(height: 5),
+
+                                  /// 🔹 Title Data
+                                  Text(
+                                    postList[index].title.toString(),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+
+                                  SizedBox(height: 12),
+
+                                  Divider(),
+
+                                  SizedBox(height: 8),
+
+                                  /// 🔹 Description Label
+                                  Text(
+                                    'Description',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blueGrey,
+                                    ),
+                                  ),
+
+                                  SizedBox(height: 5),
+
+                                  /// 🔹 Description Data
+                                  Text(
+                                    postList[index].body.toString(),
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.black54,
+                                      height: 1.5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
                       });
                 }
               },
