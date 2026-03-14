@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_apis/signUp.dart';
 
 import 'example_three.dart';
 import 'example_two.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  ExampleThree(),
+      home:  Signup(),
       debugShowCheckedModeBanner: false,
     );
   }
