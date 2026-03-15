@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -31,6 +33,9 @@ class _SignupState extends State<Signup> {
       print(response.body);
 
       if(response.statusCode == 200){
+
+        var data = jsonDecode(response.body.toString());
+
         Get.snackbar(
           "Success",
           "Account Created Successfully",
