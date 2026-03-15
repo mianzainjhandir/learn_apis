@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_apis/signUp.dart';
+import 'package:learn_apis/upload_image.dart';
 
 import 'example_three.dart';
 import 'example_two.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  Signup(),
+      home:  UploadImageScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

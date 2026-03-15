@@ -37,6 +37,7 @@ dependencies:
   http: ^1.6.0
   get: ^4.7.3
   modal_progress_hud_nsn: ^0.5.1
+  image_picker: ^1.2.1
   gap: ^3.0.1
 
 dev_dependencies:
